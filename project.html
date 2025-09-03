@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Campus Club — Mini Project</title>
+  <style>
+    :root {
+      --bg: #0f172a;        /* slate-900 */
+      --card: #111827;      /* gray-900 */
+      --muted: #94a3b8;     /* slate-400 */
+      --text: #e5e7eb;      /* gray-200 */
+      --accent: #22c55e;    /* green-500 */
+      --ring: rgba(34,197,94,.35);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(60rem 60rem at 80% -10%, rgba(34,197,94,.12), transparent 40%), var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      position: sticky; top: 0; backdrop-filter: blur(6px);
+      background: rgba(15,23,42,.6); border-bottom: 1px solid rgba(148,163,184,.15);
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 1rem; }
+    nav { display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: flex; gap: .6rem; align-items: center; font-weight: 700; }
+    .brand .dot { width: .9rem; height: .9rem; background: var(--accent); border-radius: 50%; box-shadow: 0 0 0 .35rem var(--ring); }
+    nav a { color: var(--text); text-decoration: none; opacity: .8; margin-left: 1rem; }
+    nav a:hover { opacity: 1; }
+
+    .hero { display: grid; gap: 1.25rem; padding: 4rem 1rem 2rem; text-align: center; }
+    .hero h1 { font-size: clamp(1.8rem, 1.2rem + 3vw, 3rem); line-height: 1.15; margin: 0; }
+    .hero p { color: var(--muted); margin: .25rem 0 1rem; }
+    .cta {
+      display: inline-block; padding: .8rem 1.1rem; border-radius: .8rem; font-weight: 600;
+      background: linear-gradient(135deg, var(--accent), #16a34a); color: #07130a; border: none;
+      box-shadow: 0 .5rem 1.5rem rgba(34,197,94,.2);
+      cursor: pointer;
+    }
+
+    .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .card { background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00)); border: 1px solid rgba(148,163,184,.15);
+            border-radius: 1rem; padding: 1rem; box-shadow: 0 .2rem .8rem rgba(0,0,0,.25); }
+    .card h3 { margin: 0 0 .4rem; }
+    .badge { display: inline-block; padding: .2rem .5rem; border-radius: 999px; font-size: .75rem; background: rgba(34,197,94,.15); color: #86efac; }
+
+    .section { padding: 2rem 1rem; }
+    .section h2 { margin: 0 0 .75rem; font-size: 1.35rem; }
+    .muted { color: var(--muted); }
+
+    .gallery { display: grid; gap: .6rem; grid-template-columns: repeat(6, 1fr); }
+    .gallery img { width: 100%; height: 110px; object-fit: cover; border-radius: .6rem; filter: saturate(1.05) contrast(1.05); }
+    @media (max-width: 800px) { .gallery { grid-template-columns: repeat(3, 1fr);} }
+
+    form { display: grid; gap: .8rem; max-width: 520px; }
+    input, textarea {
+      width: 100%; padding: .8rem .9rem; border-radius: .8rem; border: 1px solid rgba(148,163,184,.25);
+      background: #0b1221; color: var(--text);
+    }
+    input:focus, textarea:focus { outline: 2px solid var(--ring); border-color: var(--accent); }
+    footer { text-align: center; padding: 2rem 1rem; color: var(--muted); border-top: 1px solid rgba(148,163,184,.15); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav aria-label="Main Navigation">
+        <div class="brand" aria-label="Logo">
+          <span class="dot" aria-hidden="true"></span>
+          <span>Campus Club</span>
+        </div>
+        <div>
+          <a href="#features">Features</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" role="region" aria-label="Intro">
+      <h1>Connect. Learn. Build.</h1>
+      <p>Mini project landing page for a college club or hackathon team. Clean, responsive and ready to submit.</p>
+      <button class="cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">Join the Club</button>
+    </section>
+
+    <section id="features" class="section">
+      <h2>Why join?</h2>
+      <p class="muted">Everything you need to kickstart projects and collaborate with peers.</p>
+      <div class="grid" role="list">
+        <article class="card" role="listitem">
+          <span class="badge">Workshops</span>
+          <h3>Hands‑on Sessions</h3>
+          <p>Weekly mini workshops on web, AI, and app development led by seniors.</p>
+        </article>
+        <article class="card" role="listitem">
+          <span class="badge">Projects</span>
+          <h3>Build Real Stuff</h3>
+          <p>Team up for hackathons and publish your projects to GitHub and the college showcase.</p>
+        </article>
+        <article class="card" role="listitem">
+          <span class="badge">Community</span>
+          <h3>Peer Mentorship</h3>
+          <p>Get guidance, mock interviews, and resume reviews from alumni and mentors.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="gallery" class="section">
+      <h2>Event Highlights</h2>
+      <p class="muted">A quick peek at what we do.</p>
+      <div class="gallery" aria-label="Image gallery">
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800" alt="Students collaborating at laptops">
+        <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=800" alt="Hardware prototyping on a desk">
+        <img src="https://images.unsplash.com/photo-1526378722484-bd91ca387e72?q=80&w=800" alt="Code projected on screen in a workshop">
+        <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?q=80&w=800" alt="Group presenting project on stage">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800" alt="Typing on a mechanical keyboard">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800" alt="Close up of code editor">
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Join the Club</h2>
+      <p class="muted">Fill this quick form and we will reach out.</p>
+      <form onsubmit="return handleSubmit(event)" aria-label="Join form">
+        <label>
+          <span class="muted">Full Name</span>
+          <input required name="name" placeholder="Your name" />
+        </label>
+        <label>
+          <span class="muted">Email</span>
+          <input required type="email" name="email" placeholder="you@example.com" />
+        </label>
+        <label>
+          <span class="muted">Area of Interest</span>
+          <textarea name="interest" rows="3" placeholder="Web dev, AI/ML, App dev, Design..."></textarea>
+        </label>
+        <button class="cta" type="submit">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <small>© <span id="year"></span> Campus Club · Built for mini project demo</small>
+  </footer>
+
+  <script>
+    const year = new Date().getFullYear();
+    document.getElementById('year').textContent = year;
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(e.target));
+      alert(`Thanks, ${data.name || 'friend'}! We will contact you at ${data.email}.`);
+      e.target.reset();
+      return false;
+    }
+  </script>
+</body>
+</html>
